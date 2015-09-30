@@ -10,6 +10,31 @@
 
 @interface ViewController : UIViewController
 
+{
+    int calculate_tmp ;
+    NSString *lastbutton;
+    BOOL cleardisplay;
+    __weak IBOutlet UILabel *display;
+}
+- (IBAction)subtract:(UIButton *)sender;
+- (IBAction)multi:(UIButton *)sender;
+- (IBAction)division:(UIButton *)sender;
 
+- (IBAction)add:(UIButton *)sender;
+- (IBAction)clear:(UIButton *)sender;
+- (IBAction)equal:(UIButton *)sender;
+- (IBAction)zero:(UIButton *)sender;
+- (IBAction)nine:(UIButton *)sender;
+- (IBAction)eight:(UIButton *)sender;
+- (IBAction)seven:(UIButton *)sender;
+- (IBAction)six:(UIButton *)sender;
+- (IBAction)five:(UIButton *)sender;
+- (IBAction)four:(UIButton *)sender;
+- (IBAction)three:(UIButton *)sender;
+- (IBAction)two:(UIButton *)sender;
+- (IBAction)one:(UIButton *)sender;
+-(void)calcfunc:(NSString*)calc;
+-(void)setvalue:(NSString*)number;
 @end
+
 

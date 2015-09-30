@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    calculate_tmp = 0 ;
+    lastbutton = @"";
+    cleardisplay = YES;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -23,5 +26,150 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)subtract:(UIButton *)sender {
+    [self calcfunc:@"-"];
+}
+
+- (IBAction)multi:(UIButton *)sender {
+   
+    [self calcfunc:@"*"];
+}
+
+- (IBAction)division:(UIButton *)sender {
+    [self calcfunc:@"/"];
+    
+}
+
+- (IBAction)add:(UIButton *)sender {
+
+    [self calcfunc:@"+"];
+    
+}
+
+- (IBAction)clear:(UIButton *)sender {
+    calculate_tmp = 0;
+    lastbutton = @"";
+    cleardisplay = YES;
+    display.text  = [NSString stringWithFormat:@"0"];
+}
+
+- (IBAction)equal:(UIButton *)sender {
+    [self calcfunc:@""] ;
+    calculate_tmp = 0;
+    
+}
+
+- (IBAction)zero:(UIButton *)sender {
+    [self setvalue:@"0"];
+}
+
+- (IBAction)nine:(UIButton *)sender {
+    [self setvalue:@"9"];
+}
+
+- (IBAction)eight:(UIButton *)sender {
+    [self setvalue:@"8"];
+}
+
+- (IBAction)seven:(UIButton *)sender {
+    [self setvalue:@"7"];
+}
+
+- (IBAction)six:(UIButton *)sender {
+    [self setvalue:@"6"];
+}
+
+- (IBAction)five:(UIButton *)sender {
+    [self setvalue:@"5"];
+}
+
+- (IBAction)four:(UIButton *)sender {
+    [self setvalue:@"4"];
+}
+
+- (IBAction)three:(UIButton *)sender {
+    [self setvalue:@"3"];
+}
+
+- (IBAction)two:(UIButton *)sender {
+    [self setvalue:@"2"];
+}
+
+- (IBAction)one:(UIButton *)sender {
+   [self setvalue:@"1"];
+}
+
+-(void)setvalue:(NSString*)number
+{
+    if (display.text.intValue == 0) {
+        display.text  = [NSString stringWithFormat:number];
+        cleardisplay = NO;
+    }
+    else if
+        (cleardisplay == YES)
+    {
+        display.text  = [NSString stringWithFormat:number];
+        cleardisplay = NO;
+        
+    }
+    else
+    {
+        display.text  = [display.text stringByAppendingString:number];
+    };
+};
+
+
+
+-(void)calcfunc:(NSString*)calc
+{
+    if ([lastbutton isEqualToString:@"+"]) {
+        int tmp =  display.text.intValue + calculate_tmp;
+        calculate_tmp = tmp;
+        lastbutton = calc;
+        NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
+        display.text =[NSString stringWithFormat:resdisplay];
+    }
+    else if([lastbutton isEqualToString:@"-"])
+    {
+        int tmp =  calculate_tmp - display.text.intValue ;
+        calculate_tmp = tmp;
+        lastbutton = calc;
+        NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
+        display.text =[NSString stringWithFormat:resdisplay];
+    }
+    else if([lastbutton isEqualToString:@"*"])
+    {
+        int tmp =  display.text.intValue * calculate_tmp;
+        calculate_tmp = tmp;
+        lastbutton = calc;
+        NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
+        display.text =[NSString stringWithFormat:resdisplay];
+    }
+    else if([lastbutton isEqualToString:@"/"])
+    {
+        if (display.text.intValue == 0) {
+            NSLog(@"除數不能為0");
+            calculate_tmp = 0;
+            lastbutton = @"";
+        }
+        else
+        {
+        int tmp =  calculate_tmp/display.text.intValue ;
+        calculate_tmp = tmp;
+        lastbutton = calc;
+        NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
+        display.text =[NSString stringWithFormat:resdisplay];
+        }
+    }
+    else
+    {
+        calculate_tmp = display.text.intValue;
+        lastbutton = calc;
+    };
+    cleardisplay = YES;
+    
+ 
+};
 
 @end
