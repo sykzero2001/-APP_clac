@@ -12,7 +12,11 @@
 
 {
     int calculate_tmp ;
+    __weak IBOutlet UIButton *add_b;
     NSString *lastbutton;
+    __weak IBOutlet UIButton *subtract_b;
+    __weak IBOutlet UIButton *mulit_b;
+    __weak IBOutlet UIButton *div_b;
     BOOL cleardisplay;
     __weak IBOutlet UILabel *display;
 }
@@ -35,6 +39,7 @@
 - (IBAction)one:(UIButton *)sender;
 -(void)calcfunc:(NSString*)calc;
 -(void)setvalue:(NSString*)number;
+-(void)setcolor;
 @end
 
 

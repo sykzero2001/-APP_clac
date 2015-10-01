@@ -28,26 +28,49 @@
 }
 
 - (IBAction)subtract:(UIButton *)sender {
+    [sender setTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
+    [add_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [mulit_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [div_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
     [self calcfunc:@"-"];
 }
 
 - (IBAction)multi:(UIButton *)sender {
-   
+   [sender setTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
+    [add_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [subtract_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    [div_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
     [self calcfunc:@"*"];
 }
 
 - (IBAction)division:(UIButton *)sender {
+    [sender setTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
+    [add_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [subtract_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [mulit_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
     [self calcfunc:@"/"];
     
 }
 
 - (IBAction)add:(UIButton *)sender {
 
+    [sender setTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1] forState:UIControlStateNormal];
+    [subtract_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [mulit_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [div_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
     [self calcfunc:@"+"];
     
 }
 
 - (IBAction)clear:(UIButton *)sender {
+    [self setcolor];
     calculate_tmp = 0;
     lastbutton = @"";
     cleardisplay = YES;
@@ -55,6 +78,7 @@
 }
 
 - (IBAction)equal:(UIButton *)sender {
+    [self setcolor];
     [self calcfunc:@""] ;
     calculate_tmp = 0;
     
@@ -102,6 +126,8 @@
 
 -(void)setvalue:(NSString*)number
 {
+    [self setcolor];
+    
     if (display.text.intValue == 0) {
         display.text  = [NSString stringWithFormat:number];
         cleardisplay = NO;
@@ -117,6 +143,15 @@
     {
         display.text  = [display.text stringByAppendingString:number];
     };
+};
+-(void)setcolor{
+    [add_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [subtract_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [mulit_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
+    
+    [div_b setTitleColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1] forState:UIControlStateNormal];
 };
 
 
