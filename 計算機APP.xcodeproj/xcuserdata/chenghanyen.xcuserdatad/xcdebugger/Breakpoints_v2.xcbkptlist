@@ -6,33 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "&#x8a08;&#x7b97;&#x6a5f;APP/ViewController.h"
-            timestampString = "465373761.131978"
+            filePath = "&#x8a08;&#x7b97;&#x6a5f;APP/ViewController.m"
+            timestampString = "465894052.992236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-calcfunc:"
-            landmarkType = "4">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "&#x8a08;&#x7b97;&#x6a5f;APP/ViewController.h"
-            timestampString = "465373761.131978"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-six:"
-            landmarkType = "4">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-setvalue:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

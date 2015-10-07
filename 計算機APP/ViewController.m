@@ -19,6 +19,9 @@
     calculate_tmp = 0 ;
     lastbutton = @"";
     cleardisplay = YES;
+    add_b.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    add_b.layer.borderWidth = 3;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -84,44 +87,8 @@
     
 }
 
-- (IBAction)zero:(UIButton *)sender {
-    [self setvalue:@"0"];
-}
-
-- (IBAction)nine:(UIButton *)sender {
-    [self setvalue:@"9"];
-}
-
-- (IBAction)eight:(UIButton *)sender {
-    [self setvalue:@"8"];
-}
-
-- (IBAction)seven:(UIButton *)sender {
-    [self setvalue:@"7"];
-}
-
-- (IBAction)six:(UIButton *)sender {
-    [self setvalue:@"6"];
-}
-
-- (IBAction)five:(UIButton *)sender {
-    [self setvalue:@"5"];
-}
-
-- (IBAction)four:(UIButton *)sender {
-    [self setvalue:@"4"];
-}
-
-- (IBAction)three:(UIButton *)sender {
-    [self setvalue:@"3"];
-}
-
-- (IBAction)two:(UIButton *)sender {
-    [self setvalue:@"2"];
-}
-
-- (IBAction)one:(UIButton *)sender {
-   [self setvalue:@"1"];
+- (IBAction)buttonPush:(UIButton *)sender {
+    [self setvalue:sender.titleLabel.text];
 }
 
 -(void)setvalue:(NSString*)number
@@ -129,13 +96,13 @@
     [self setcolor];
     
     if (display.text.intValue == 0) {
-        display.text  = [NSString stringWithFormat:number];
+        display.text  = number;
         cleardisplay = NO;
     }
     else if
         (cleardisplay == YES)
     {
-        display.text  = [NSString stringWithFormat:number];
+        display.text  = number;
         cleardisplay = NO;
         
     }
@@ -163,7 +130,7 @@
         calculate_tmp = tmp;
         lastbutton = calc;
         NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
-        display.text =[NSString stringWithFormat:resdisplay];
+        display.text =resdisplay;
     }
     else if([lastbutton isEqualToString:@"-"])
     {
@@ -171,7 +138,7 @@
         calculate_tmp = tmp;
         lastbutton = calc;
         NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
-        display.text =[NSString stringWithFormat:resdisplay];
+        display.text = resdisplay;
     }
     else if([lastbutton isEqualToString:@"*"])
     {
@@ -179,7 +146,7 @@
         calculate_tmp = tmp;
         lastbutton = calc;
         NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
-        display.text =[NSString stringWithFormat:resdisplay];
+        display.text =resdisplay;
     }
     else if([lastbutton isEqualToString:@"/"])
     {
@@ -194,7 +161,7 @@
         calculate_tmp = tmp;
         lastbutton = calc;
         NSString *resdisplay = [[NSString alloc] initWithFormat:@"%d", tmp];
-        display.text =[NSString stringWithFormat:resdisplay];
+        display.text =resdisplay;
         }
     }
     else
